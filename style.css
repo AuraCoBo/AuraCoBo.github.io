@@ -1,0 +1,314 @@
+/* Estilos para el header */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+#header {
+    position: fixed;
+    width: 100%;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+#header.scrolled {
+    background-color: #fff;
+}
+
+#logo img {
+    height: 50px;
+}
+
+#nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 30px;
+    transition: color 0.5s ease;
+}
+
+#header.scrolled .nav-list a {
+    color: #000;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+}
+
+#header.scrolled .menu-toggle {
+    color: #000;
+}
+
+#nav {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+#nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    list-style: none;
+}
+
+#nav-list a {
+    text-decoration: none;
+    font-size: 24px;
+    margin: 10px;
+    color: #000; /* Color de texto para los enlaces */
+}
+
+.menu-toggle {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Mostrar el menú cuando está activo */
+#nav.active {
+    display: block;
+}
+
+/* Estilos para el menú de navegación en versión móvil */
+@media screen and (max-width: 768px) {
+    #nav-list {
+        flex-direction: column;
+    }
+
+    #nav-list li {
+        margin-bottom: 20px;
+    }
+
+    #nav.active {
+        display: flex; /* Muestra el menú cuando está activo */
+    }
+}
+
+/* ... el resto de tus estilos para el header ... */
+
+/* Estilos para el carrusel */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 600%; /* 100% por cada imagen */
+    height: 100%;
+    transition: transform 1.5s ease; /* Asegúrate de tener esto para una transición suave */
+}
+
+.slide {
+    width: 16.67%; /* 100% dividido por 6 imágenes */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@keyframes sliding {
+    0%, 100% { transform: translateX(0%); }
+    16.67% { transform: translateX(-16.67%); }
+    33.34% { transform: translateX(-33.34%); }
+    50% { transform: translateX(-50%); }
+    66.67% { transform: translateX(-66.67%); }
+    83.34% { transform: translateX(-83.34%); }
+}
+
+
+/* ... el resto de tus estilos ... */
+/* Estilos para la sección de una sola columna */
+#single-column {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#single-column .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#single-column h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de la imagen */
+#single-column .image-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#single-column .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para la sección de múltiples segmentos */
+#multi-segment {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 50px 0;
+}
+
+#multi-segment .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilos para los segmentos y subsegmentos */
+#multi-segment .segment, 
+#multi-segment .sub-segment {
+    margin-bottom: 40px;
+}
+
+#multi-segment h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#multi-segment h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la galería de imágenes */
+#multi-segment .gallery, #single-column .gallery {
+    display: flex;
+    flex-wrap: wrap; /* permite que los ítems se ajusten al siguiente renglón cuando no hay más espacio */
+    gap: 10px; /* establece un espacio entre los ítems */
+}
+
+#multi-segment .gallery img, #multi-segment .gallery video, #single-column .gallery img {
+    width: calc(50% - 10px); /* 10px is half the space between images */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#multi-segment .gallery img[src="img/IMG_9419.png"] {
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortar o deformar */
+    width: calc(50% - 10px); /* Ancho como las demás imágenes */
+    height: auto; /* La altura se ajustará automáticamente según la relación de aspecto original de la imagen */
+}
+/* Estilos para la llamada a la acción */
+#hero .cta {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#hero .cta:hover {
+    background-color: #555;
+}
+/* Estilos para el pie de página */
+#footer {
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 50px 0;
+}
+
+#footer .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilos para las columnas del pie de página */
+#footer .column {
+    flex-basis: 30%;
+}
+
+#footer .column h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#footer .column p, 
+#footer .column ul, 
+#footer .column a {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+#footer .column ul {
+    list-style: none;
+    padding: 0;
+}
+
+#footer .column ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón de email */
+.email-button {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Estilos para los enlaces de redes sociales e íconos */
+.social-column .social-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-column img {
+    width: 24px; /* Ancho del ícono */
+    height: 24px; /* Altura del ícono */
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333; /* Color de la "X", cámbialo según tu diseño */
+}
+
+.close-menu:focus {
+    outline: none;
+}
