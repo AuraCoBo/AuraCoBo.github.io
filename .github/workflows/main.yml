@@ -1,0 +1,25 @@
+name: Optimize Images
+
+on:
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Optimize images
+        uses: calibreapp/image-actions@v1
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          jpegProgressive: true
+          optipngLevel: 3
+          pngquantSpeed: 1
